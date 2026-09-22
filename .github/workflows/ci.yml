@@ -22,6 +22,10 @@ on:
 
 permissions:
   contents: read
+env:
+  POSTGRES_USER: pipeline
+  POSTGRES_PASSWORD: pipeline
+  POSTGRES_DB: pipeline
 
 jobs:
   test:
@@ -32,9 +36,9 @@ jobs:
       postgres:
         image: postgres:16-alpine
         env:
-          POSTGRES_USER: pipeline
-          POSTGRES_PASSWORD: pipeline
-          POSTGRES_DB: pipeline
+          POSTGRES_USER: $POSTGRES_USER
+          POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+          POSTGRES_DB: $POSTGRES_DB
         ports:
           - 5432:5432
         options: >-
@@ -60,3 +64,5 @@ jobs:
 
       - name: Run the integration tests
         run: npm run test:integration
+        env:
+          DATABASE_URL: postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost:5432/$POSTGRES_DB
