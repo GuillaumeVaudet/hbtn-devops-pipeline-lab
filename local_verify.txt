@@ -1,0 +1,38 @@
+hbtn-devops-pipeline-lab main ✗ docker compose run --rm app npm run test:unit
+[+] run 1/1
+ ✔ Container hbtn-devops-pipeline-lab-db-1 Running                                                                            0.0s
+Container hbtn-devops-pipeline-lab-db-1 Waiting 
+Container hbtn-devops-pipeline-lab-db-1 Healthy 
+Container hbtn-devops-pipeline-lab-app-run-566d0266d68d Creating 
+Container hbtn-devops-pipeline-lab-app-run-566d0266d68d Created 
+
+> hbtn-devops-pipeline-lab@1.0.0 test:unit
+> jest --runInBand tests/unit
+
+ PASS  tests/unit/items.unit.test.js
+ PASS  tests/unit/health.test.js
+
+Test Suites: 2 passed, 2 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        0.33 s
+Ran all test suites matching tests/unit.
+
+hbtn-devops-pipeline-lab main ❯ docker compose run --rm app npm run test:integration
+[+] run 1/1
+ ✔ Container hbtn-devops-pipeline-lab-db-1 Running                                                                            0.0s
+Container hbtn-devops-pipeline-lab-db-1 Waiting 
+Container hbtn-devops-pipeline-lab-db-1 Healthy 
+Container hbtn-devops-pipeline-lab-app-run-4fbd8f7f2989 Creating 
+Container hbtn-devops-pipeline-lab-app-run-4fbd8f7f2989 Created 
+
+> hbtn-devops-pipeline-lab@1.0.0 test:integration
+> jest --runInBand tests/integration
+
+ PASS  tests/integration/items.int.test.js
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.331 s
+Ran all test suites matching tests/integration.
